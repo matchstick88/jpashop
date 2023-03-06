@@ -1,6 +1,5 @@
 package jpabook.jpashop.service;
 
-import com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jpabook.jpashop.domain.Member;
@@ -39,7 +38,7 @@ public class MemberServiceTest {
     }
 
     @Test(expected = IllegalStateException.class)
-    public void 중복회원조회() {
+    public void 중복회원조회() throws Exception{
         //given
         Member member1 = new Member();
         member1.setName("kim");
@@ -54,7 +53,4 @@ public class MemberServiceTest {
         //then
         fail("예외가 발생해야 한다.");
     }
-
-
-
 }
